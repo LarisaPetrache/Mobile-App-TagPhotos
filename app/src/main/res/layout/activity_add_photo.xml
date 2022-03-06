@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddPhoto"
+    android:gravity="center_horizontal">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/purple_500"
+            app:layout_constraintBottom_toTopOf="@+id/ImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:srcCompat="@drawable/back"
+                android:backgroundTint="@color/purple_500"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:text="Add Photo"
+                tools:layout_editor_absoluteX="73dp"
+                tools:layout_editor_absoluteY="21dp"
+                tools:ignore="RtlSymmetry" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="351dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/placeholder"
+            app:layout_constraintBottom_toTopOf="@+id/selectPhoto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <Button
+        android:id="@+id/selectPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="53dp"
+        android:backgroundTint="@color/blue"
+        android:text="select photo from gallery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ImageView" />
+
+        <TextView
+            android:id="@+id/enterTagLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/ptserif"
+            android:text="Enter photo tag:"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/setTag"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectPhoto"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/setTag"
+            android:layout_width="211dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="24dp"
+            android:inputType="textCapSentences"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/enterTagLabel"
+            app:layout_constraintTop_toBottomOf="@+id/selectPhoto" />
+
+            <TextView
+                android:id="@+id/suggestedTags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptserif"
+                android:text="Suggested tags:"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/enterTagLabel"
+                app:layout_constraintStart_toStartOf="@id/enterTagLabel"
+                android:layout_marginTop="15dp"/>
+
+            <GridLayout
+                android:id="@+id/checkbox_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:columnCount="2"
+                app:layout_constraintEnd_toEndOf="@id/setTag"
+                app:layout_constraintStart_toStartOf="@id/suggestedTags"
+                app:layout_constraintTop_toBottomOf="@id/suggestedTags">
+
+            </GridLayout>
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="150dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/blue"
+                android:text="Cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/enterTagLabel"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_container"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="150dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="5dp"
+                android:backgroundTint="@color/blue"
+                android:text="Save"
+                app:layout_constraintBottom_toBottomOf="@+id/btnCancel"
+                app:layout_constraintEnd_toEndOf="@+id/setTag"
+                app:layout_constraintHorizontal_bias="0.115"
+                app:layout_constraintStart_toEndOf="@+id/btnCancel"
+                app:layout_constraintTop_toTopOf="@+id/btnCancel"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
